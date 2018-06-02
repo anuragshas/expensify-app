@@ -12,6 +12,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.11",
+    "jest": "^23.1.0",
     "live-server": "^1.2.0",
     "moment": "^2.22.2",
     "node-sass": "^4.9.0",
@@ -33,7 +34,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "serve": "live-server public/",
     "build": "webpack",
     "dev-server": "webpack-dev-server"
