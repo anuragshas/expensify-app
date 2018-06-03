@@ -2,10 +2,11 @@ import moment from 'moment';
 import {setTextFilter,setStartDate,setEndDate,sortByAmount,sortByDate} from "../../actions/filters";
 
 test("should setup set text action event",()=>{
-    const action = setTextFilter('test');
+    const text = 'test';
+    const action = setTextFilter(text);
     expect(action).toEqual({
         type: "SET_TEXT_FILTER",
-        text: "test"
+        text
     })
 });
 
