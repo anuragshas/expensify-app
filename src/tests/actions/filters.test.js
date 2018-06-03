@@ -1,3 +1,4 @@
+import {moment} from 'moment';
 import {setTextFilter,setStartDate,setEndDate,sortByAmount,sortByDate} from "../../actions/filters";
 
 test("should setup set text action event",()=>{
@@ -17,18 +18,18 @@ test("should setup set text action default object",()=>{
 });
 
 test("should setup set startDate action actionEvent",()=>{
-    const action = setStartDate(1000);
+    const action = setStartDate(moment(0));
     expect(action).toEqual({
         type:"SET_START_DATE",
-        startDate:1000
+        startDate:moment(0)
     })
 });
 
 test("should setup set endDate action actionEvent",()=>{
-    const action = setEndDate(100);
+    const action = setEndDate(moment(0));
     expect(action).toEqual({
         type:"SET_END_DATE",
-        endDate:100
+        endDate:moment(0)
     })
 });
 
