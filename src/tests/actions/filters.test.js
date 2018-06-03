@@ -1,4 +1,4 @@
-import {moment} from 'moment';
+import moment from 'moment';
 import {setTextFilter,setStartDate,setEndDate,sortByAmount,sortByDate} from "../../actions/filters";
 
 test("should setup set text action event",()=>{

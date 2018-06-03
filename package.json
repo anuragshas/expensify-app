@@ -34,7 +34,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "jest --watch",
+    "test": "jest",
     "serve": "live-server public/",
     "build": "webpack",
     "dev-server": "webpack-dev-server"
