@@ -3,4 +3,4 @@ node_modules/
 
 .idea/
 public/dist/
-firebase/firebase.js
+src/firebase/firebase.js
