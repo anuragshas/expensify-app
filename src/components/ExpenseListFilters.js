@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { DateRangePicker } from 'react-dates';
 import {
@@ -41,13 +42,13 @@ export class ExpenseListFilters extends React.Component {
         </select>
         <DateRangePicker
           startDate={this.props.filters.startDate}
-          startDateId={'startDate'}
+          startDateId="startDate"
           endDate={this.props.filters.endDate}
-          endDateId={'endDate'}
+          endDateId="endDate"
           onDatesChange={this.onDatesChange}
           focusedInput={this.state.calendarFocused}
           onFocusChange={this.onFocusChange}
-          showClearDates={true}
+          showClearDates
           numberOfMonths={1}
           isOutsideRange={() => false}
         />
@@ -55,6 +56,24 @@ export class ExpenseListFilters extends React.Component {
     );
   }
 }
+
+ExpenseListFilters.propTypes = {
+  setTextFilter: PropTypes.func,
+  setStartDate: PropTypes.func,
+  setEndDate: PropTypes.func,
+  sortByAmount: PropTypes.func,
+  sortByDate: PropTypes.func,
+  filters: PropTypes.object,
+};
+
+ExpenseListFilters.defaultProps = {
+  setTextFilter: null,
+  setStartDate: null,
+  setEndDate: null,
+  sortByAmount: null,
+  sortByDate: null,
+  filters: null,
+};
 
 const mapStateToProps = state => ({ filters: state.filters });
 

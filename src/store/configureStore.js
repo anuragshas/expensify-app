@@ -11,5 +11,5 @@ export default () =>
       expenses: expensesReducer,
       filters: filtersReducer,
     }),
-    composeEnhancers(applyMiddleware(thunk)),
+    composeEnhancers(applyMiddleware(thunk))
   );

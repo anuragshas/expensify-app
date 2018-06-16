@@ -12,12 +12,14 @@ beforeEach(() => {
   editExpense = jest.fn();
   removeExpense = jest.fn();
   history = { push: jest.fn() };
-  wrapper = shallow(<EditExpensePage
-    editExpense={editExpense}
-    removeExpense={removeExpense}
-    history={history}
-    expense={expenses[2]}
-  />);
+  wrapper = shallow(
+    <EditExpensePage
+      editExpense={editExpense}
+      removeExpense={removeExpense}
+      history={history}
+      expense={expenses[2]}
+    />
+  );
 });
 
 test('should render Edit expense page correcttly', () => {

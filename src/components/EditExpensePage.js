@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
 import { editExpense, removeExpense } from '../actions/expenses';
@@ -21,6 +22,20 @@ export class EditExpensePage extends React.Component {
     );
   }
 }
+
+EditExpensePage.propTypes = {
+  editExpense: PropTypes.func,
+  removeExpense: PropTypes.func,
+  history: PropTypes.object,
+  expense: PropTypes.object,
+};
+
+EditExpensePage.defaultProps = {
+  editExpense: null,
+  removeExpense: null,
+  history: null,
+  expense: null,
+};
 
 const mapStateToProps = (state, props) => ({
   expense: state.expenses.find(expense => expense.id === props.match.params.id),

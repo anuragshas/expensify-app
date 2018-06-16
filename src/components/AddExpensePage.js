@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
 import { startAddExpense } from '../actions/expenses';
@@ -17,8 +18,17 @@ export class AddExpensePage extends React.Component {
   }
 }
 
+AddExpensePage.propTypes = {
+  startAddExpense: PropTypes.func,
+  history: PropTypes.object,
+};
+AddExpensePage.defaultProps = {
+  startAddExpense: null,
+  history: null,
+};
+
 const mapDispatchToProps = dispatch => ({
-  startAddExpense: expense => dispatch(startAddExpense(expense))
+  startAddExpense: expense => dispatch(startAddExpense(expense)),
 });
 
 export default connect(undefined, mapDispatchToProps)(AddExpensePage);

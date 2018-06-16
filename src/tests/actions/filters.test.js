@@ -1,5 +1,11 @@
 import moment from 'moment';
-import { setTextFilter, setStartDate, setEndDate, sortByAmount, sortByDate } from '../../actions/filters';
+import {
+  setTextFilter,
+  setStartDate,
+  setEndDate,
+  sortByAmount,
+  sortByDate,
+} from '../../actions/filters';
 
 test('should setup set text action event', () => {
   const text = 'test';

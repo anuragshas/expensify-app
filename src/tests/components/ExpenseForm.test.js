@@ -19,7 +19,7 @@ test('should render error for invalid form submission', () => {
   const wrapper = shallow(<ExpenseForm />);
   expect(wrapper).toMatchSnapshot();
   wrapper.find('form').simulate('submit', {
-    preventDefault: () => {}
+    preventDefault: () => {},
   });
   expect(wrapper.state('error').length).toBeGreaterThan(0);
   expect(wrapper).toMatchSnapshot();
@@ -32,7 +32,7 @@ test('should set description on input change', () => {
     .find('input')
     .at(0)
     .simulate('change', {
-      target: { value }
+      target: { value },
     });
   expect(wrapper.state('description')).toBe(value);
 });
@@ -44,7 +44,7 @@ test('should set note on input change', () => {
     .find('textarea')
     .at(0)
     .simulate('change', {
-      target: { value }
+      target: { value },
     });
   expect(wrapper.state('note')).toBe(value);
 });
@@ -56,7 +56,7 @@ test('should set amount if valid input', () => {
     .find('input')
     .at(1)
     .simulate('change', {
-      target: { value }
+      target: { value },
     });
   expect(wrapper.state('amount')).toBe(value);
 });
@@ -68,7 +68,7 @@ test('should not set amount if invalid input', () => {
     .find('input')
     .at(1)
     .simulate('change', {
-      target: { value }
+      target: { value },
     });
   expect(wrapper.state('amount')).toBe('');
 });
@@ -77,14 +77,14 @@ test('should call onsubmit prop for valid form submission', () => {
   const onSubmitSpy = jest.fn();
   const wrapper = shallow(<ExpenseForm expense={expenses[1]} onSubmit={onSubmitSpy} />);
   wrapper.find('form').simulate('submit', {
-    preventDefault: () => {}
+    preventDefault: () => {},
   });
   expect(wrapper.state('error')).toBe('');
   expect(onSubmitSpy).toHaveBeenCalledWith({
     description: expenses[1].description,
     amount: expenses[1].amount,
     createdAt: expenses[1].createdAt,
-    note: expenses[1].note
+    note: expenses[1].note,
   });
 });
 

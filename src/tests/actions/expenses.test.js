@@ -2,23 +2,19 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import database from '../../firebase/firebase';
 import expenses from '../fixtures/expenses';
-import {
-  addExpense,
-  startAddExpense,
-  editExpense,
-  removeExpense,
-} from '../../actions/expenses';
+import { addExpense, startAddExpense, editExpense, removeExpense } from '../../actions/expenses';
 
 const createMockStore = configureMockStore([thunk]);
 
-beforeEach((done) => {
+beforeEach(done => {
   const expensesData = {};
   // collecting fixture expenses
-  expenses.forEach(({
-    id, description, amount, note, createdAt,
-  }) => {
+  expenses.forEach(({ id, description, amount, note, createdAt }) => {
     expensesData[id] = {
-      description, amount, note, createdAt,
+      description,
+      amount,
+      note,
+      createdAt,
     };
   });
   // implement fixture expenses in Firebase.
@@ -55,7 +51,7 @@ test('should setup add expense action object with provided values', () => {
   });
 });
 
-test('Add expense to database and store', (done) => {
+test('Add expense to database and store', done => {
   // mock store based on library
   const store = createMockStore({});
 
@@ -80,13 +76,13 @@ test('Add expense to database and store', (done) => {
       });
       return database.ref(`expenses/${actions[0].expense.id}`).once('value');
     })
-    .then((snapshot) => {
+    .then(snapshot => {
       expect(snapshot.val()).toEqual(expensesData);
       done();
     });
 });
 
-test('Add expense with default to database and store', (done) => {
+test('Add expense with default to database and store', done => {
   const store = createMockStore({});
 
   const expenseDefaults = {
@@ -110,7 +106,7 @@ test('Add expense with default to database and store', (done) => {
 
       return database.ref(`expenses/${actions[0].expense.id}`).once('value');
     })
-    .then((snapshot) => {
+    .then(snapshot => {
       expect(snapshot.val()).toEqual(expenseDefaults);
       done();
     });

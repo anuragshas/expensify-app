@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
 
@@ -65,15 +66,15 @@ export default class ExpenseForm extends React.Component {
         {this.state.error && <p>{this.state.error}</p>}
         <form onSubmit={this.onSubmit}>
           <input
-            type={'text'}
-            placeholder={'Description'}
+            type="text"
+            placeholder="Description"
             value={this.state.description}
             onChange={this.onDescriptionChange}
             autoFocus
           />
           <input
-            type={'text'}
-            placeholder={'Amount'}
+            type="text"
+            placeholder="Amount"
             value={this.state.amount}
             onChange={this.onAmountChange}
           />
@@ -86,7 +87,7 @@ export default class ExpenseForm extends React.Component {
             isOutsideRange={() => false}
           />
           <textarea
-            placeholder={'Add a note for your expense optional'}
+            placeholder="Add a note for your expense optional"
             value={this.state.note}
             onChange={this.onNoteChange}
           />
@@ -96,3 +97,13 @@ export default class ExpenseForm extends React.Component {
     );
   }
 }
+
+ExpenseForm.propTypes = {
+  expense: PropTypes.object,
+  onSubmit: PropTypes.func,
+};
+
+ExpenseForm.defaultProps = {
+  expense: null,
+  onSubmit: null,
+};
