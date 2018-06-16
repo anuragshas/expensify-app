@@ -60,7 +60,7 @@ test('Add expense to database and store', done => {
     description: 'Mouse',
     amount: 3000,
     note: 'This one is better',
-    createAt: 1000,
+    createdAt: 1000,
   };
 
   store
@@ -89,7 +89,7 @@ test('Add expense with default to database and store', done => {
     description: '',
     amount: 0,
     note: '',
-    createAt: 0,
+    createdAt: 0,
   };
 
   store
