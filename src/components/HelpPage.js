@@ -1,9 +1,9 @@
 import React from 'react';
 
-const HelpPage = ()=>(
-    <div>
+const HelpPage = () => (
+  <div>
         This is from help  page
-    </div>
+  </div>
 );
 
 export default HelpPage;
