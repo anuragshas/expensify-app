@@ -5,7 +5,7 @@ exports[`should render Header correctly 1`] = `
   <h1>
     Expensify
   </h1>
-  <nav>
+  <div>
     <NavLink
       activeClassName="is-active"
       ariaCurrent="true"
@@ -33,6 +33,6 @@ exports[`should render Header correctly 1`] = `
     >
       Logout
     </button>
-  </nav>
+  </div>
 </header>
 `;
